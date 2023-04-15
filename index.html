@@ -9,7 +9,7 @@
             background-color: #fff;
             margin: 0;
             padding: 0;
-            transition: background-color 0.5s ease-out;
+            transition: background-color 0.5s ease;
         }
         .container {
             max-width: 1200px;
@@ -23,7 +23,7 @@
             margin: 0 auto;
             max-width: 100%;
             height: auto;
-            transition: filter 0.5s ease-out;
+            transition: filter 0.5s ease;
         }
         #invert-btn {
             position: fixed;
@@ -46,7 +46,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-color: transparent;
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         body.invert-colors {
             background-color: #000;
@@ -69,11 +69,19 @@
     <button id="invert-btn"></button>
 
     <script>
-        document.getElementById("invert-btn").addEventListener("click", function() {
-            document.body.classList.toggle("invert-colors");
-            document.querySelector("img").classList.toggle("invert-colors");
-            document.getElementById("invert-btn").classList.toggle("invert-colors");
+        var invertBtn = document.getElementById("invert-btn");
+        var body = document.body;
+        var logo = document.querySelector("img");
+
+        invertBtn.addEventListener("click", function() {
+            body.classList.toggle("invert-colors");
+            logo.classList.toggle("invert-colors");
+            invertBtn.classList.toggle("invert-colors");
+            setTimeout(function() {
+                invertBtn.style.transform = "scale(1)";
+            }, 300);
         });
+
     </script>
 </body>
 </html>

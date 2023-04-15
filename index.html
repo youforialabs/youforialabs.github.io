@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>youforia Labs - Coming soon...</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #fff;
-			margin: 0;
-			padding: 0;
-		}
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 20px;
-			text-align: center;
-		}
-		img {
-			height: 75px;
-			display: block;
-			margin: 0 auto;
-			max-width: 100%;
-			height: auto;
-		}
-	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youforia Labs - Coming soon...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease-out;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            height: 75px;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            transition: filter 0.5s ease-out;
+        }
+        #invert-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://raw.githubusercontent.com/youforialabs/youforialabs.github.io/main/yinyang.png");
+            background-size: 70%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        body.invert-colors {
+            background-color: #000;
+            color: #fff;
+        }
+        img.invert-colors {
+            filter: invert(1);
+        }
+        #invert-btn.invert-colors {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<img src="https://raw.githubusercontent.com/youforialabs/youforialabs.github.io/main/youforialogo.png" alt="youforia Labs Logo" style="max-width: 300px;">
-	</div>
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/youforialabs/youforialabs.github.io/main/youforialogo.png" alt="youforia Labs Logo" style="max-width: 300px;">
+    </div>
+
+    <button id="invert-btn"></button>
+
+    <script>
+        document.getElementById("invert-btn").addEventListener("click", function() {
+            document.body.classList.toggle("invert-colors");
+            document.querySelector("img").classList.toggle("invert-colors");
+            document.getElementById("invert-btn").classList.toggle("invert-colors");
+        });
+    </script>
 </body>
 </html>
